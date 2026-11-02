@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "assurance-ds"
+version = "0.1.0"
+description = "RAG sur Excel, churn, fraude et recommandation sur un assureur fictif : découper le problème avant de modéliser."
+requires-python = ">=3.10"
+dependencies = ["pandas>=2", "numpy", "duckdb>=1.0", "openpyxl", "scikit-learn"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+ads = "assurance_ds.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
